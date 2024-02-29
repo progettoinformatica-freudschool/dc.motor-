@@ -1,0 +1,19 @@
+const int led=3;
+int fadeamount=5;
+int luminosita=0;
+
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(led, OUTPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  luminosita=map(luminosita, 0, 255, 120, 255);
+  analogWrite(led, luminosita);
+  luminosita=luminosita+fadeamount;
+  if(luminosita==0 || luminosita==255){
+  fadeamount=-fadeamount;
+  delay(1000);
+  }
+}
